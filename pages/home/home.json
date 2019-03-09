@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "AlbumListCell": "/components/AlbumListCell/AlbumListCell"
+  }
+}

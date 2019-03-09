@@ -1,0 +1,21 @@
+<!--pages/home/home.wxml-->
+<view class='content'>
+  <view class='topImage'>
+    <image src='/source/images/home-top.jpeg'></image>
+    <text>ASMR 专辑</text>
+  </view>
+  <scroll-view 
+    class='cellList' 
+    scroll-y="true" 
+    style='height:{{ cellListHeight }}px'>
+    <AlbumListCell 
+      class='itemCell' 
+      wx:for='{{albumData.soundList}}' 
+      wx:key='index, item'
+      src="{{ albumData.albumImageUrl }}" 
+      albumName='{{item.soundName}}' 
+      albumCount='10'>
+    </AlbumListCell>
+  </scroll-view>
+
+</view>

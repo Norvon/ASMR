@@ -1,0 +1,11 @@
+<!--pages/components/AlbumListCell/AlbumListCell.wxml-->
+<view class='content'>
+  <view class='left'>
+    <image src='{{ src }}'>
+    </image>
+  </view>
+  <view class='right'>
+    <text class='album-name'>{{ albumName }} </text>
+    <text class='album-count'>{{ albumCount }}首</text>
+  </view>
+</view>

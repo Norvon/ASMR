@@ -1,0 +1,42 @@
+/* pages/components/AlbumListCell/AlbumListCell.wxss */
+.content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.left image {
+  margin-left: 4px;
+  width: 70px;
+  height: 70px;
+  border-radius: 5px;
+  box-shadow:2px 2px 3px 3px #f2f2f2;
+}
+
+.right {
+  margin-left: 8px;
+  height: 100%;
+  line-height: 74px;
+  width: 100%;
+  border-bottom: 1px #f3f3f3 solid;
+}
+
+.album-name {
+  display: block;
+  margin-top: 10px;
+  line-height: 18px;
+  height: 44px;
+  overflow: hidden;
+  font-size: 16px;
+  color: #000;
+}
+
+.album-count {
+  display: block;
+  margin-bottom: 0px;
+  line-height: 20px;
+  height: 20px;
+  font-size: 12px;
+  color: #999;
+  
+}
