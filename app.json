@@ -2,12 +2,14 @@
   "pages": [
     "pages/home/home",
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/albumDetail/albumDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "ASMR 专辑",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
   }
 }

@@ -10,11 +10,13 @@
     style='height:{{ cellListHeight }}px'>
     <AlbumListCell 
       class='itemCell' 
-      wx:for='{{albumData.soundList}}' 
+      wx:for='{{albumDataList}}' 
       wx:key='index, item'
-      src="{{ albumData.albumImageUrl }}" 
-      albumName='{{item.soundName}}' 
-      albumCount='10'>
+      src="{{ item.albumImageUrl }}" 
+      albumName='{{item.albumName}}' 
+      albumCount='{{ item.soundList.length }}'
+      bindtap='albumListCellClick'
+      data-album-list='{{ item }}'>
     </AlbumListCell>
   </scroll-view>
 

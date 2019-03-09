@@ -1,28 +1,18 @@
-// pages/home/home.js
-var localData = require('./data.js')
+// pages/albumDetail/albumDetail.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    cellListHeight: 0, // 列表高度
-    albumDataList: []
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.setNavigationBarColor({
-      frontColor: '#ffffff',
-      backgroundColor: '#ff0000',
-    })
 
-    this.setData({
-      cellListHeight: (wx.getSystemInfoSync().windowHeight - 250),
-      albumDataList: localData.dataJson
-    })
   },
 
   /**
@@ -72,12 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-
-  /**
-   * 点击专辑列表
-   */
-  albumListCellClick(e) {
-    console.log(e)
   }
 })

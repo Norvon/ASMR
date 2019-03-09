@@ -5,7 +5,7 @@
 
 .topImage {
   display: flex;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .topImage image{
@@ -16,7 +16,7 @@
 
 .topImage text {
   position: absolute;
-  top: 210px;
+  top: 30px;
   width: 100%;
   text-align: center;
   color: #fff;

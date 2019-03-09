@@ -1,4 +1,4 @@
-var data = {
+var data = [{
   "albumImageUrl": "http://static.missevan.com/coversmini/201611/05/ce6eb1a2f3c8520a73fa31a9868b8ccb231813.jpg",
   "albumName": "[PPOMO-\u50ac\u7720]-\u5373\u65f6\u66f4\u65b0 \u97f3\u5355\u5927\u5408\u96c6 ",
   "soundList": [{
@@ -942,7 +942,7 @@ var data = {
       "soundSinger": "\u69ff\u4e4b\u6728\u697d"
     }
   ]
-}
+}]
 
 module.exports = {
   dataJson: data
