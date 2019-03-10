@@ -1,2 +1,13 @@
 <!--pages/albumDetail/albumDetail.wxml-->
-<text>pages/albumDetail/albumDetail.wxml</text>
+<view class='content'>
+  <view class='topImage'>
+    <image src='/source/images/home-top.jpeg'></image>
+    <text>{{ album.albumName }}</text>
+  </view>
+  <scroll-view 
+    class='cellList' 
+    scroll-y="true" 
+    style='height:{{ cellListHeight }}px'>
+  </scroll-view>
+
+</view>

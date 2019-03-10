@@ -78,6 +78,9 @@ Page({
    * 点击专辑列表
    */
   albumListCellClick(e) {
-    console.log(e)
+    let album = JSON.stringify(e.currentTarget.dataset.album)
+    wx.navigateTo({
+      url: '/pages/albumDetail/albumDetail?album=' + escape(album)
+    })
   }
 })

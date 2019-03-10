@@ -5,14 +5,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    album: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let data = JSON.parse(unescape(options.album))
+    this.setData({
+      album: data
+    })
   },
 
   /**
