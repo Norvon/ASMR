@@ -11,5 +11,6 @@
     "navigationBarTitleText": "ASMR 专辑",
     "navigationBarTextStyle": "black",
     "navigationStyle": "custom"
-  }
+  },
+  "cloud": true
 }

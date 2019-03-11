@@ -14,11 +14,37 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
+    // wx.cloud.init({
+    //   traceUser: true,
+    //   env: 'asmr-db-b1d6d1'
+    // })
+
+    wx.cloud.init();
+    const asmrDB = wx.cloud.database({
+      env: 'asmr-db-b1d6d1'
+    })
+
+    let albumsT = asmrDB.collection("albums")
+
+    albumsT
+      // .orderBy('album_name', 'desc')
+      .where({
+      // '_id': 'XIXHjXkPDdDCJ629'
+      })
+      .get({
+        success(res) {
+          var name = res.data[0].album_name
+
+          console.log(unescape((name.replace(/\\u/gi, '%u'))))
+        }
+      })
+
     wx.setNavigationBarColor({
       frontColor: '#ffffff',
       backgroundColor: '#ff0000',
     })
-
+    console.log(localData.dataJson);
     this.setData({
       cellListHeight: (wx.getSystemInfoSync().windowHeight - 250),
       albumDataList: localData.dataJson
