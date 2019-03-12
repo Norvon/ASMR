@@ -1,6 +1,4 @@
 // pages/home/home.js
-var localData = require('./data.js')
-
 var utils = require('../../utils/util.js')
 Page({
 

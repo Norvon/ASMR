@@ -1,4 +1,8 @@
 /* pages/home/home.wxss */
+Page {
+  overflow: hidden;
+}
+
 .content {
   height: 100%;
 }

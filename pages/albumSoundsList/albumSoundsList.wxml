@@ -9,10 +9,12 @@
     scroll-y="true" 
     style='height:{{ cellListHeight }}px'>
     <SoundListCell
-    index = '1'
-    soundName = '3月1日-[PPOMO-RMSA] 面部按摩&清洁时间'
-    soundSinger = '槿之木楽'
+    class='itemCell' 
+    wx:for='{{ soundList }}'
+    wx:key='index, item'
+    index = '{{ index  + 1 + ""}}'
+    soundName = '{{ item.sound_name }}'
+    soundSinger = '{{ item.sound_singer }}'
     ></SoundListCell>
   </scroll-view>
-
 </view>
