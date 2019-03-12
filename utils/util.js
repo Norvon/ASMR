@@ -14,6 +14,18 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+const getDBTable = tableName => {
+  wx.cloud.init();
+  const asmrDB = wx.cloud.database({
+    env: 'asmr-db-b1d6d1'
+  })
+
+  let dbTable = asmrDB.collection(tableName)
+  return dbTable
+}
+
+
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  getDBTable: getDBTable
 }

@@ -1,0 +1,18 @@
+<!--pages/albumSoundsList/albumSoundsList.wxml-->
+<view class='album-sounds-list-content'>
+  <view class='topImage'>
+    <image src='/source/images/home-top.jpeg'></image>
+    <text>{{ soundsId }}</text>
+  </view>
+  <scroll-view 
+    class='cellList' 
+    scroll-y="true" 
+    style='height:{{ cellListHeight }}px'>
+    <SoundListCell
+    index = '1'
+    soundName = '3月1日-[PPOMO-RMSA] 面部按摩&清洁时间'
+    soundSinger = '槿之木楽'
+    ></SoundListCell>
+  </scroll-view>
+
+</view>

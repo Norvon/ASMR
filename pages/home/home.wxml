@@ -12,11 +12,11 @@
       class='itemCell' 
       wx:for='{{albumDataList}}' 
       wx:key='index, item'
-      src="{{ item.albumImageUrl }}" 
-      albumName='{{item.albumName}}' 
-      albumCount='{{ item.soundList.length }}'
+      src="{{ item.album_image_url }}" 
+      albumName='{{ item.album_name }}' 
+      albumCount='{{ item.sounds_count }}'
       bindtap='albumListCellClick'
-      data-album='{{ item }}'>
+      data-sounds-id='{{ item._id }}'>
     </AlbumListCell>
   </scroll-view>
 

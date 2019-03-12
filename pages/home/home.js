@@ -1,5 +1,7 @@
 // pages/home/home.js
 var localData = require('./data.js')
+
+var utils = require('../../utils/util.js')
 Page({
 
   /**
@@ -13,100 +15,128 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
 
-    // wx.cloud.init({
-    //   traceUser: true,
-    //   env: 'asmr-db-b1d6d1'
-    // })
+    this.initUI()
+    this.initData()
 
-    wx.cloud.init();
-    const asmrDB = wx.cloud.database({
-      env: 'asmr-db-b1d6d1'
-    })
-
-    let albumsT = asmrDB.collection("albums")
-
-    albumsT
-      // .orderBy('album_name', 'desc')
-      .where({
-      // '_id': 'XIXHjXkPDdDCJ629'
-      })
-      .get({
-        success(res) {
-          var name = res.data[0].album_name
-
-          console.log(unescape((name.replace(/\\u/gi, '%u'))))
-        }
-      })
-
-    wx.setNavigationBarColor({
-      frontColor: '#ffffff',
-      backgroundColor: '#ff0000',
-    })
-    console.log(localData.dataJson);
-    this.setData({
-      cellListHeight: (wx.getSystemInfoSync().windowHeight - 250),
-      albumDataList: localData.dataJson
-    })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   },
 
   /**
+   * 初始化UI
+   */
+  initUI() {
+    // 设置状态栏颜色
+    wx.setNavigationBarColor({
+      frontColor: '#ffffff',
+      backgroundColor: '#ff0000'
+    })
+
+    this.setData({
+      cellListHeight: (wx.getSystemInfoSync().windowHeight - 250),
+    })
+  },
+
+  /**
+   * 初始化数据
+   */
+  initData() {
+    this.getAlbumsData()
+  },
+  /**
+   * 获取专辑列表
+   */
+  getAlbumsData() {
+    let that = this;
+    let albumsT = utils.getDBTable('albums')
+    albumsT.get({
+      success(albumsRes) {
+        let albumsList = albumsRes.data
+        that.getSoundsCount(albumsList)
+      },
+    })
+  },
+  
+  getSoundsCount(albumsList) {
+    let that = this;
+    for (var i = 0; i < albumsList.length; i++) {
+      var obj = albumsList[i]
+      let album_id = obj['_id']
+      let soundsT = utils.getDBTable('sounds')
+      soundsT
+        .where({
+          'album_id': album_id
+        })
+        .count({
+          success(soundsRes) {
+            obj['sounds_count'] = soundsRes.total
+            
+            var tempData = that.data.albumDataList
+            tempData.push(obj)
+            that.setData({
+              albumDataList: tempData
+            })
+          }
+        })
+    }
+  },
+  /**
    * 点击专辑列表
    */
   albumListCellClick(e) {
-    let album = JSON.stringify(e.currentTarget.dataset.album)
+    console.log(e)
+    let soundsId = JSON.stringify(e.currentTarget.dataset.soundsId)
     wx.navigateTo({
-      url: '/pages/albumDetail/albumDetail?album=' + escape(album)
+      url: '/pages/albumSoundsList/albumSoundsList?soundsId=' + escape(soundsId)
     })
   }
 })

@@ -1,2 +1,11 @@
 <!--components/SoundListCell/SoundListCell.wxml-->
-<text>components/SoundListCell/SoundListCell.wxml</text>
+<view class='sound-cell-content'>
+  <view class='left'>
+    <text> {{ index }}</text>
+    <!-- <image src='/source/images/home-top.jpeg'></image> -->
+  </view>
+  <view class='right'>
+    <text class='sound-name'>{{ soundName }} </text>
+    <text class='sound-singer'>{{ soundSinger }}</text>
+  </view>
+</view>

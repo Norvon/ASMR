@@ -1,0 +1,32 @@
+/* pages/albumSoundsList/albumSoundsList.wxss */
+.album-sounds-list-content {
+  height: 100%;
+}
+
+.topImage {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.topImage image{
+   width: 100%; 
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.topImage text {
+  position: absolute;
+  top: 30px;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+}
+
+.cellList {
+  border-radius: 5px;
+}
+
+.itemCell {
+  height: 80px;
+}

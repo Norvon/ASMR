@@ -1,20 +1,20 @@
-// pages/albumDetail/albumDetail.js
+// pages/albumSoundsList/albumSoundsList.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    album: {}
+    soundsId: ""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let data = JSON.parse(unescape(options.album))
+    let soundsId = JSON.parse(unescape(options.soundsId))
     this.setData({
-      album: data
+      soundsId: soundsId
     })
   },
 

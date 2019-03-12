@@ -4,7 +4,9 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    index: String,
+    soundName: String,
+    soundSinger: String
   },
 
   /**

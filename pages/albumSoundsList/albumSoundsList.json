@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "SoundListCell": "/components/SoundListCell/SoundListCell"
+  }
+}
