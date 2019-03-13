@@ -13,6 +13,7 @@ Page({
     page: '',
     isHideLoadMore: true,
     loadMoreMsg: '加载更多···',
+    isRefreshing: false,
   },
 
   /**
@@ -68,11 +69,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    console.log(12313)
-    this.setData({
-      isHideLoadMore: false
-    });
-    this.initData();
+    
   },
 
   /**
@@ -98,13 +95,19 @@ Page({
   /**
    * 初始化数据
    */
-  initData(isPullDownRefresh) {
+  initData() {
 
-    // if (!isPullDownRefresh) {
-    //   wx.showLoading({
-    //     "title": '加载中···'
-    //   });
-    // }
+    if (this.data.isRefreshing) {
+      return;
+    }
+
+    this.setData({
+      isRefreshing: true
+    })
+
+    wx.showLoading({
+      "title": '加载中···'
+    });
 
     let that = this;
     let count = 20;
@@ -126,20 +129,39 @@ Page({
           let noMoreData = (arr.length <= 0);
 
           let dataArr = [];
-
-          if (isPullDownRefresh) {
-            dataArr = arr.concat(that.data.soundList);
-          }
-          else {
-            dataArr = that.data.soundList.concat(arr);
-          }
+          dataArr = that.data.soundList.concat(arr);
 
           that.setData({
             soundList: dataArr,
             isHideLoadMore: !noMoreData,
             loadMoreMsg: noMoreData ? "没有更多了" : "加载更多···"
           });
+        },
+
+        complete() {
+          // 隐藏加载
+          wx.hideLoading()
+          that.setData({
+            isRefreshing: false
+          })
+
+          // 隐藏底部提示
+          setTimeout(function() {
+            that.setData({
+              isHideLoadMore: true
+            })
+          }, 300)
         }
+        
       })
+  },
+/**
+ * 滚动到底部
+ */
+  scrolltolower() {
+    this.setData({
+      isHideLoadMore: false
+    });
+    this.initData();
   },
 })

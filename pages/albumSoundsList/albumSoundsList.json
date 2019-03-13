@@ -1,5 +1,6 @@
 {
   "usingComponents": {
     "SoundListCell": "/components/SoundListCell/SoundListCell"
-  }
+  },
+  "disableScroll": true
 }

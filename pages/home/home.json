@@ -1,5 +1,7 @@
 {
   "usingComponents": {
     "AlbumListCell": "/components/AlbumListCell/AlbumListCell"
-  }
+  },
+
+"disableScroll": true
 }

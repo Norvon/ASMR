@@ -7,7 +7,8 @@
   <scroll-view 
     class='cellList' 
     scroll-y="true" 
-    style='height:{{ cellListHeight }}px'>
+    style='height:{{ cellListHeight}}px'
+    bindscrolltolower='scrolltolower'>
     <SoundListCell
     class='itemCell' 
     wx:for='{{ soundList }}'
@@ -17,4 +18,8 @@
     soundSinger = '{{ item.sound_singer }}'
     ></SoundListCell>
   </scroll-view>
+
+  <view class="footer" hidden="{{isHideLoadMore}}">
+    <text>{{ loadMoreMsg }}</text>
+  </view>
 </view>
