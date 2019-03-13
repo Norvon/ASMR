@@ -5,6 +5,7 @@
 
 .top-content {
   display: flex;
+  height: 240px;
   margin-bottom: 10px;
 }
 

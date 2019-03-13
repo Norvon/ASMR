@@ -5,11 +5,12 @@
 
 .top-content {
   display: flex;
+  height: 240px;
   margin-bottom: 10px;
 }
 
 .top-image {
-   width: 100%; 
+  width: 100%; 
   padding-left: 5px;
   padding-right: 5px;
 }
@@ -30,4 +31,28 @@
   text-align: center;
   color: #fff;
   font-weight: bold;
+}
+
+.voice-info {
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.voice-name {
+  display: block;
+  font-size: 14px;
+}
+
+.voice-user {
+  display: block;
+  padding-top: 5px;
+  font-size: 17px;
+  color: #ccc;
+}
+
+.voice-player {
+  background-color: #333;
 }

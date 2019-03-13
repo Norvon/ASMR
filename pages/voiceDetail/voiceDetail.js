@@ -8,6 +8,8 @@ Page({
     title: '',
     topImageUrl: '',
     voice: {},
+    voicePlayerHeight: '',
+    backgroundAudiioManager: null,
   },
 
   /**
@@ -20,14 +22,28 @@ Page({
     const app = getApp()
     let voiceList = JSON.parse(app.globalData.voiceList)
     let currentVoiceIndex = app.globalData.currentVoiceIndex
-    let voidce = voiceList[currentVoiceIndex] 
+    let voice = voiceList[currentVoiceIndex] 
 
     let title = (currentVoiceIndex + 1) + "/" + voiceList.length
 
+    let backgroundAudiioManager = wx.getBackgroundAudioManager()
     this.setData({
       title: title,
-      topImageUrl: data.topImageUrl
+      topImageUrl: data.topImageUrl,
+      voice: voice,
+      voicePlayerHeight: (wx.getSystemInfoSync().windowHeight - 250 - 60),
+      backgroundAudiioManager: backgroundAudiioManager,
     })
+
+    backgroundAudiioManager.src = voice.voice_url
+    backgroundAudiioManager.title = "123"
+    backgroundAudiioManager.play()
+    
+    backgroundAudiioManager.onPlay(() => {
+      console.log("音乐播放开始");
+    })
+
+    
 
   },
 
@@ -87,5 +103,18 @@ Page({
     wx.navigateBack({
 
     })
+  },
+
+  previousClick() {
+
+  },
+
+  beginPlayerClick() {
+    this.data.backgroundAudiioManager.onEnded(() => {
+      console.log("音乐播放结束");
+    })
+  },
+  nextSongClick() {
+
   },
 })

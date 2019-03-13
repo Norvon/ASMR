@@ -10,6 +10,7 @@ Page {
 .top-content {
   display: flex;
   margin-bottom: 10px;
+  height: 240px;
 }
 
 .top-image {

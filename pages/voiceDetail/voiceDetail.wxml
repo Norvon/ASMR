@@ -5,4 +5,17 @@
     <text>{{ title }}</text>
     <image class='back-image' src='/source/svgs/back.svg' bindtap='backClick'></image>
   </view>
+  <view class='voice-info'>
+    <view>
+      <text class='voice-name'>{{ voice.voice_name }}</text>
+    </view>
+    <view>
+      <text class='voice-user'>{{ voice.voice_singer }}</text>
+    </view>
+  </view>
+  <view class='voice-player' style='height:{{ voicePlayerHeight }}px'>
+  <button bindtap='previousClick'>上</button>
+  <button bindtap='beginPlayerClick'>开始</button>
+  <button bindtap='nextSongClick'>下</button>
+  </view>
 </view>

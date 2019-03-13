@@ -17,28 +17,27 @@
 .right {
   margin-left: 8px;
   margin-right: 8px;
-  height: 100%;
-  line-height: 74px;
+  height: 74px;
   width: 100%;
   border-bottom: 1px #f3f3f3 solid;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .sound-name {
   display: block;
-  margin-top: 10px;
-  line-height: 18px;
-  height: 44px;
+  height: 69%;
   overflow: hidden;
   font-size: 16px;
   color: #000;
+  margin-top: 5px;
 }
 
 .sound-singer {
   display: block;
-  margin-bottom: 0px;
-  line-height: 20px;
-  height: 20px;
+  height: 40%;
   font-size: 13px;
   color: #999;
-  
 }
