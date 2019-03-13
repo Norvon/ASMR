@@ -9,6 +9,7 @@ Page({
   data: {
     cellListHeight: '',
     title: '',
+    topImageUrl: '',
     soundsId: '',
     soundList: [],
     page: '',
@@ -26,7 +27,8 @@ Page({
 
     this.setData({
       soundsId: data.soundsId,
-      title: data.albumName
+      title: data.albumName,
+      topImageUrl: data.albumImageUrl
     })
     this.initUI()
     this.initData()
@@ -166,5 +168,30 @@ Page({
       isHideLoadMore: false
     });
     this.initData();
+  },
+  /**
+   * 点击cell 跳转
+   */
+  soundListCellClick(e) {
+    
+    let obj = {}
+    obj["topImageUrl"] = this.data.topImageUrl
+    let data = JSON.stringify(obj)
+    
+    wx.navigateTo({
+      url: '/pages/voiceDetail/voiceDetail?data=' + data
+    })
+
+    const app = getApp()
+    app.globalData.voiceList = JSON.stringify(this.data.soundList)
+    app.globalData.currentVoiceIndex = e.currentTarget.dataset.currentVoiceIndex
+  },
+  /**
+   * 点击返回
+   */
+  backClick() {
+    wx.navigateBack({
+      
+    })
   },
 })

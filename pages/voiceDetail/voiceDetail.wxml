@@ -1,0 +1,8 @@
+<!--pages/voiceDetail/voiceDetail.wxml-->
+<view class='voice-dtail-content'>
+  <view class='top-content'>
+    <image class='top-image' src='{{ topImageUrl }}'></image>
+    <text>{{ title }}</text>
+    <image class='back-image' src='/source/svgs/back.svg' bindtap='backClick'></image>
+  </view>
+</view>

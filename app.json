@@ -3,7 +3,8 @@
     "pages/home/home",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/albumSoundsList/albumSoundsList"
+    "pages/albumSoundsList/albumSoundsList",
+    "pages/voiceDetail/voiceDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",

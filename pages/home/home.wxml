@@ -1,7 +1,7 @@
 <!--pages/home/home.wxml-->
 <view class='content'>
-  <view class='topImage'>
-    <image src='/source/images/home-top.jpeg'></image>
+  <view class='top-content'>
+    <image class='top-image' src='/source/images/home-top.jpeg'></image>
     <text>ASMR 专辑</text>
   </view>
   <scroll-view 
@@ -17,7 +17,8 @@
       albumCount='{{ item.sounds_count }}'
       bindtap='albumListCellClick'
       data-sounds-id='{{ item._id }}'
-      data-album-name='{{ item.album_name }}'>
+      data-album-name='{{ item.album_name }}'
+      data-album-image-url='{{ item.album_image_url }}'>
     </AlbumListCell>
   </scroll-view>
 

@@ -1,8 +1,9 @@
 <!--pages/albumSoundsList/albumSoundsList.wxml-->
 <view class='album-sounds-list-content'>
-  <view class='topImage'>
-    <image src='/source/images/home-top.jpeg'></image>
+  <view class='top-content'>
+    <image class='top-image' src='{{ topImageUrl }}'></image>
     <text>{{ title }}</text>
+    <image class='back-image' src='/source/svgs/back.svg' bindtap='backClick'></image>
   </view>
   <scroll-view 
     class='cellList' 
@@ -16,6 +17,9 @@
     index = '{{ index  + 1 + ""}}'
     soundName = '{{ item.sound_name }}'
     soundSinger = '{{ item.sound_singer }}'
+    bindtap='soundListCellClick'
+    data-sound-obj='{{ item }}'
+    data-current-voice-index='{{index}}'
     ></SoundListCell>
   </scroll-view>
 

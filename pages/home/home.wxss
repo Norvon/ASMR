@@ -7,18 +7,18 @@ Page {
   height: 100%;
 }
 
-.topImage {
+.top-content {
   display: flex;
   margin-bottom: 10px;
 }
 
-.topImage image{
+.top-image {
    width: 100%; 
   padding-left: 5px;
   padding-right: 5px;
 }
 
-.topImage text {
+.top-content text {
   position: absolute;
   top: 30px;
   width: 100%;

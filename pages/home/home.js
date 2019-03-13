@@ -131,10 +131,10 @@ Page({
    * 点击专辑列表
    */
   albumListCellClick(e) {
-    console.log(e)
     let obj = {}
     obj["soundsId"] = e.currentTarget.dataset.soundsId
     obj["albumName"] = e.currentTarget.dataset.albumName
+    obj["albumImageUrl"] = e.currentTarget.dataset.albumImageUrl
     let data = JSON.stringify(obj)
     wx.navigateTo({
       url: '/pages/albumSoundsList/albumSoundsList?data=' + escape(data)
