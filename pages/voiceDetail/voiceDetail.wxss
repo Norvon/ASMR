@@ -53,6 +53,21 @@
   color: #ccc;
 }
 
+.play-control {
+  background-color: #fff;
+  height: 20%;
+  display: flex;
+
+}
+
+.play-control image {
+  height: 100%;
+}
+
+.play-control :first {
+  padding-right: -20px;
+}
+
 .voice-player {
   background-color: #333;
 }

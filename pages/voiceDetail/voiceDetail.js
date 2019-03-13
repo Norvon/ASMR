@@ -9,7 +9,7 @@ Page({
     topImageUrl: '',
     voice: {},
     voicePlayerHeight: '',
-    backgroundAudiioManager: null,
+    isPlayer: Boolean
   },
 
   /**
@@ -26,15 +26,15 @@ Page({
 
     let title = (currentVoiceIndex + 1) + "/" + voiceList.length
 
-    let backgroundAudiioManager = wx.getBackgroundAudioManager()
 
     this.setData({
       title: title,
       topImageUrl: data.topImageUrl,
       voice: voice,
       voicePlayerHeight: (wx.getSystemInfoSync().windowHeight - 250 - 60),
-      backgroundAudiioManager: backgroundAudiioManager,
     })
+
+    this.playVoice()
   },
 
   /**
@@ -94,18 +94,93 @@ Page({
 
     })
   },
-
+  /**
+   * 上一首
+   */
   previousClick() {
+    let app = getApp()
+    let voiceList = JSON.parse(app.globalData.voiceList)
 
+    if (app.globalData.currentVoiceIndex > 0) {
+      app.globalData.currentVoiceIndex = app.globalData.currentVoiceIndex - 1
+    }
+
+    let currentVoiceIndex = app.globalData.currentVoiceIndex
+    let voice = voiceList[currentVoiceIndex]
+
+    let title = (currentVoiceIndex + 1) + "/" + voiceList.length
+
+    this.setData({
+      title: title,
+      voice: voice
+    })
+
+    this.playVoice()
   },
-
+  /**
+   * 开始播放
+   */
   beginPlayerClick() {
-    this.data.backgroundAudiioManager.src = this.data.voice.voice_url
-    this.data.backgroundAudiioManager.title = this.data.voice.voice_name
 
-    this.data.backgroundAudiioManager.play()
+    let that = this;
+    wx.getBackgroundAudioPlayerState({
+      success(res) {
+        const status = res.status
+        if (status == 1) { // 播放中
+          wx.getBackgroundAudioManager().pause()
+          that.setData({
+            isPlayer: false
+          })
+        } 
+        else if (status == 0 ) { // 暂停中 
+          that.playVoice()
+        }
+        else if (status == 2) { // 没有音乐播放
+          that.playVoice()
+        }
+      },
+      fail(res) {
+        console.log(res)
+      }
+    })
+    
+    
   },
+
+  /**
+   * 下一首
+   */
   nextSongClick() {
+    let app = getApp()
+    let voiceList = JSON.parse(app.globalData.voiceList)
+    
+    if (app.globalData.currentVoiceIndex < voiceList.length - 1) {
+      app.globalData.currentVoiceIndex = app.globalData.currentVoiceIndex + 1
+    }
 
+    let currentVoiceIndex = app.globalData.currentVoiceIndex
+    let voice = voiceList[currentVoiceIndex]
+
+    let title = (currentVoiceIndex + 1) + "/" + voiceList.length
+
+    this.setData({
+      title: title,
+      voice: voice
+    })
+
+    this.playVoice()
   },
+/**
+ * 播放声音
+ */
+  playVoice() {
+    const manager = wx.getBackgroundAudioManager()
+    manager.src = this.data.voice.voice_url
+    manager.title = this.data.voice.voice_name
+
+    manager.play()
+    this.setData({
+      isPlayer: true
+    })
+  }
 })

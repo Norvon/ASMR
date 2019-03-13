@@ -14,8 +14,11 @@
     </view>
   </view>
   <view class='voice-player' style='height:{{ voicePlayerHeight }}px'>
-  <button bindtap='previousClick'>上</button>
-  <button bindtap='beginPlayerClick'>开始</button>
-  <button bindtap='nextSongClick'>下</button>
+  <view class='play-control'>
+      <image src='/source/svgs/pre.svg' bindtap='previousClick'>上</image>
+    <image src='{{isPlayer ? "/source/svgs/begin.svg" : "/source/svgs/pause.svg"}}' bindtap='beginPlayerClick'>开始</image>
+    <image src='/source/svgs/next.svg' bindtap='nextSongClick'>下</image>
+  </view>
+
   </view>
 </view>
