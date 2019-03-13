@@ -27,6 +27,7 @@ Page({
     let title = (currentVoiceIndex + 1) + "/" + voiceList.length
 
     let backgroundAudiioManager = wx.getBackgroundAudioManager()
+
     this.setData({
       title: title,
       topImageUrl: data.topImageUrl,
@@ -34,17 +35,6 @@ Page({
       voicePlayerHeight: (wx.getSystemInfoSync().windowHeight - 250 - 60),
       backgroundAudiioManager: backgroundAudiioManager,
     })
-
-    backgroundAudiioManager.src = voice.voice_url
-    backgroundAudiioManager.title = "123"
-    backgroundAudiioManager.play()
-    
-    backgroundAudiioManager.onPlay(() => {
-      console.log("音乐播放开始");
-    })
-
-    
-
   },
 
   /**
@@ -110,9 +100,10 @@ Page({
   },
 
   beginPlayerClick() {
-    this.data.backgroundAudiioManager.onEnded(() => {
-      console.log("音乐播放结束");
-    })
+    this.data.backgroundAudiioManager.src = this.data.voice.voice_url
+    this.data.backgroundAudiioManager.title = this.data.voice.voice_name
+
+    this.data.backgroundAudiioManager.play()
   },
   nextSongClick() {
 
