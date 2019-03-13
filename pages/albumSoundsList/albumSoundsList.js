@@ -8,7 +8,8 @@ Page({
    */
   data: {
     cellListHeight: '',
-    soundsId: "",
+    title: '',
+    soundsId: '',
     soundList: [],
     page: '',
     isHideLoadMore: true,
@@ -21,9 +22,11 @@ Page({
    */
   onLoad: function (options) {
     
-    let soundsId = JSON.parse(unescape(options.soundsId))
+    let data = JSON.parse(unescape(options.data))
+
     this.setData({
-      soundsId: soundsId
+      soundsId: data.soundsId,
+      title: data.albumName
     })
     this.initUI()
     this.initData()

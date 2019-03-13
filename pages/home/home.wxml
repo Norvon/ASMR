@@ -16,7 +16,8 @@
       albumName='{{ item.album_name }}' 
       albumCount='{{ item.sounds_count }}'
       bindtap='albumListCellClick'
-      data-sounds-id='{{ item._id }}'>
+      data-sounds-id='{{ item._id }}'
+      data-album-name='{{ item.album_name }}'>
     </AlbumListCell>
   </scroll-view>
 

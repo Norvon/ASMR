@@ -132,9 +132,12 @@ Page({
    */
   albumListCellClick(e) {
     console.log(e)
-    let soundsId = JSON.stringify(e.currentTarget.dataset.soundsId)
+    let obj = {}
+    obj["soundsId"] = e.currentTarget.dataset.soundsId
+    obj["albumName"] = e.currentTarget.dataset.albumName
+    let data = JSON.stringify(obj)
     wx.navigateTo({
-      url: '/pages/albumSoundsList/albumSoundsList?soundsId=' + escape(soundsId)
+      url: '/pages/albumSoundsList/albumSoundsList?data=' + escape(data)
     })
   }
 })

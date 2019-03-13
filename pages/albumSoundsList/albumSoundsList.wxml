@@ -2,7 +2,7 @@
 <view class='album-sounds-list-content'>
   <view class='topImage'>
     <image src='/source/images/home-top.jpeg'></image>
-    <text>{{ soundsId }}</text>
+    <text>{{ title }}</text>
   </view>
   <scroll-view 
     class='cellList' 
