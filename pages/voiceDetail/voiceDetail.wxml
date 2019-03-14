@@ -14,11 +14,13 @@
     </view>
   </view>
   <view class='voice-player' style='height:{{ voicePlayerHeight }}px'>
-  <view class='play-control'>
-      <image src='/source/svgs/pre.svg' bindtap='previousClick'>上</image>
-    <image src='{{isPlayer ? "/source/svgs/begin.svg" : "/source/svgs/pause.svg"}}' bindtap='beginPlayerClick'>开始</image>
-    <image src='/source/svgs/next.svg' bindtap='nextSongClick'>下</image>
-  </view>
+    <view class='play-control'>
+      <view class='play-control-wrapper'>
+        <image class='pre-image' src='/source/svgs/pre.svg' bindtap='previousClick'></image>
+        <image class='begin-image'  src='{{isPlayer ? "/source/svgs/begin.svg" : "/source/svgs/pause.svg"}}' bindtap='beginPlayerClick'></image>
+        <image class='next-image'  src='/source/svgs/next.svg' bindtap='nextSongClick'></image>
+      </view>
+    </view>
 
   </view>
 </view>

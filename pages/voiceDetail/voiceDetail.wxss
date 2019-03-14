@@ -57,16 +57,35 @@
   background-color: #fff;
   height: 20%;
   display: flex;
-
+  justify-content: center;
 }
 
-.play-control image {
-  height: 100%;
+.play-control-wrapper {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.play-control :first {
-  padding-right: -20px;
+.pre-image,
+.next-image {
+  width: 45px;
+  height: 45px;
 }
+
+.begin-image {
+  width: 60px;
+  height: 60px;
+}
+
+.pre-image {
+  margin-right: 10px;
+}
+
+.next-image {
+  margin-left: 10px;
+}
+
 
 .voice-player {
   background-color: #333;

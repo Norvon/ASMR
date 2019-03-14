@@ -143,8 +143,6 @@ Page({
         console.log(res)
       }
     })
-    
-    
   },
 
   /**
