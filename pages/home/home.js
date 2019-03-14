@@ -99,34 +99,39 @@ Page({
     albumsT.get({
       success(albumsRes) {
         let albumsList = albumsRes.data
-        that.getSoundsCount(albumsList)
+        // that.getSoundsCount(albumsList)
+        that.setData({
+          albumDataList: albumsList
+        })
       },
     })
   },
   
-  getSoundsCount(albumsList) {
-    let that = this;
-    for (var i = 0; i < albumsList.length; i++) {
-      var obj = albumsList[i]
-      let album_id = obj['_id']
-      let soundsT = utils.getDBTable('sounds')
-      soundsT
-        .where({
-          'album_id': album_id
-        })
-        .count({
-          success(soundsRes) {
-            obj['sounds_count'] = soundsRes.total
+  // getSoundsCount(albumsList) {
+  //   let that = this;
+  //   for (var i = 0; i < albumsList.length; i++) {
+
+  //     var obj = albumsList[i]
+  //     let album_id = obj['_id']
+  //     let soundsT = utils.getDBTable('sounds')
+
+  //     soundsT
+  //       .where({
+  //         'album_id': album_id
+  //       })
+  //       .count({
+  //         success(soundsRes) {
+  //           obj['sounds_count'] = soundsRes.total
             
-            var tempData = that.data.albumDataList
-            tempData.push(obj)
-            that.setData({
-              albumDataList: tempData
-            })
-          }
-        })
-    }
-  },
+  //           var tempData = that.data.albumDataList
+  //           tempData.push(obj)
+  //           that.setData({
+  //             albumDataList: tempData
+  //           })
+  //         }
+  //       })
+  //   }
+  // },
   /**
    * 点击专辑列表
    */
