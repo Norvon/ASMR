@@ -39,11 +39,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 0 20px;
 }
 
 .voice-name {
   display: block;
   font-size: 14px;
+  text-align: center;
 }
 
 .voice-user {
