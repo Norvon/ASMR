@@ -34,7 +34,7 @@
 }
 
 .voice-info {
-  height: 60px;
+  height: 200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -55,7 +55,7 @@
 
 .play-control {
   background-color: #fff;
-  height: 20%;
+  height: 100%;
   display: flex;
   justify-content: center;
 }

@@ -26,15 +26,16 @@ Page({
 
     let title = (currentVoiceIndex + 1) + "/" + voiceList.length
 
+    let continuePlay = (voice.voice_url == this.data.voice.voice_url)
 
     this.setData({
       title: title,
       topImageUrl: data.topImageUrl,
       voice: voice,
-      voicePlayerHeight: (wx.getSystemInfoSync().windowHeight - 250 - 60),
+      voicePlayerHeight: (wx.getSystemInfoSync().windowHeight - 250 - 200),
     })
 
-    this.playVoice()
+    this.playVoice(continuePlay)
   },
 
   /**
@@ -128,12 +129,9 @@ Page({
         const status = res.status
         if (status == 1) { // 播放中
           wx.getBackgroundAudioManager().pause()
-          that.setData({
-            isPlayer: false
-          })
         } 
         else if (status == 0 ) { // 暂停中 
-          that.playVoice()
+          that.playVoice(true)
         }
         else if (status == 2) { // 没有音乐播放
           that.playVoice()
@@ -171,14 +169,55 @@ Page({
 /**
  * 播放声音
  */
-  playVoice() {
+  playVoice(continuePlay) {
     const manager = wx.getBackgroundAudioManager()
-    manager.src = this.data.voice.voice_url
-    manager.title = this.data.voice.voice_name
 
+    // 是否是继续播放
+    if (!continuePlay) {
+      manager.src = this.data.voice.voice_url
+      manager.title =  '序号:' + this.data.title + ' 名称:' + this.data.voice.voice_name
+    }
+
+    // 播放  
     manager.play()
+
+    // 按钮显示
     this.setData({
       isPlayer: true
+    })
+
+  
+
+    let that = this;
+    // 监听背景音频自然播放结束事件
+    manager.onEnded((e) => {
+      that.nextSongClick()
+    })
+
+    // 监听用户在系统音乐播放面板点击下一曲事件（仅iOS）
+    manager.onNext((e) => {
+      that.nextSongClick()
+    })
+
+  // 监听背景音频暂停事件
+    manager.onPause((e) => {
+      // 按钮显示
+      that.setData({
+        isPlayer: false
+      })
+    })
+
+    // 监听背景音频播放事件
+    manager.onPlay((e) => {
+      // 按钮显示
+      that.setData({
+        isPlayer: true
+      })
+    })
+    
+    // 监听用户在系统音乐播放面板点击上一曲事件（仅iOS）
+    manager.onPrev((e) => {
+      that.previousClick()
     })
   }
 })
