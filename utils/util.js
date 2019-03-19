@@ -17,7 +17,7 @@ const formatNumber = n => {
 const getDBTable = tableName => {
   wx.cloud.init();
   const asmrDB = wx.cloud.database({
-    env: 'asmr-db-b1d6d1'
+    env: 'daily-fish-yun-2a3e79'
   })
 
   let dbTable = asmrDB.collection(tableName)
