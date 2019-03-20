@@ -14,7 +14,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.0.4",
 	"appid": "wx206fbdaca9e03708",
-	"projectname": "ASMR",
+	"projectname": "test",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},

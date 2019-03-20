@@ -1,0 +1,21 @@
+<!--pages/ASMRIntroduction/ASMRIntroduction.wxml-->
+<view class='introduction-content'>
+  <view class='wrapper'>
+
+    <text class='title'>
+    ASMR 介绍
+    </text>
+
+    <text class='asmr-describe'>
+ASMR (Autonomous Sensory Meridian Response)，中文译名“自发性知觉经络反应”，是一个用于描述感知现象的新词，其特征是：对视觉、听觉、触觉、嗅觉或者感知上的刺激而使人在颅内、头皮、背部或身体其他范围内产生一种独特的、令人愉悦的刺激感。
+部分素材，有助于睡眠安神。
+    </text>
+
+    <text class='tip-text'>
+    请带上耳机, 并且把耳机音量调节到合适的音量
+    </text>
+
+    <button class='enter' bindtap='clickEnterBtn'>立即进入</button>
+  </view>
+
+</view>
