@@ -96,7 +96,9 @@ Page({
   getAlbumsData() {
     let that = this;
     let albumsT = utils.getDBTable('albums')
-    albumsT.get({
+    albumsT
+      .orderBy('_id', 'desc')
+    .get({
       success(albumsRes) {
         let albumsList = albumsRes.data
         // that.getSoundsCount(albumsList)
