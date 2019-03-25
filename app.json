@@ -5,8 +5,9 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/albumSoundsList/albumSoundsList",
-    "pages/voiceDetail/voiceDetail"
-    
+    "pages/voiceDetail/voiceDetail",
+    "pages/main/main",
+    "pages/about/about"
   ],
   "window": {
     "backgroundTextStyle": "light",

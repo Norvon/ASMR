@@ -1,6 +1,6 @@
 <!--pages/ASMRIntroduction/ASMRIntroduction.wxml-->
 <view class='introduction-content'>
-  <view class='wrapper'>
+  <view class='wrapper' bindtap='clickEnterBtn'>
 
     <text class='title'>
     ASMR 介绍

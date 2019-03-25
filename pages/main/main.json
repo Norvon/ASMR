@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "enablePullDownRefresh": true,
+  "backgroundColor": "#f4f4f4",
+  "backgroundTextStyle": "dark",
+  "usingComponents": {
+    "imageAuthorCell": "/components/image-author-cell/image-author-cell"
+  }
+}

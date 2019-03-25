@@ -146,5 +146,14 @@ Page({
     wx.navigateTo({
       url: '/pages/albumSoundsList/albumSoundsList?data=' + escape(data)
     })
+  },
+
+/**
+ * 点击顶部图片跳转
+ */
+  clickTopImage(e) {
+    wx.navigateTo({
+      url: '/pages/main/main'
+    })
   }
 })

@@ -1,0 +1,31 @@
+<!--pages/main/main.wxml-->
+<view class="main">
+  <view class="content">
+    <imageAuthorCell 
+      wx:for="{{ dataArr }}" 
+      wx:key="item" 
+      src="{{ item.image_url }}"
+      authorName="{{item.author_name }}"
+      authorIcon="{{item.author_icon }}" 
+
+      id="{{ item.image_url }}"
+      bindtap="cellClick">
+    </imageAuthorCell>
+  </view>
+
+  <view class="footer" hidden="{{isHideLoadMore}}">
+    <text>{{ loadMoreMsg }}</text>
+  </view>
+
+</view>
+<!-- 返回 -->
+<view class='top'>
+      <image class='back-image' src='/source/svgs/black_back.svg' bindtap='backClick'></image>
+</view>
+
+<!-- 关于 -->
+<view 
+class="about"
+bindtap="clickAbuout">
+  <image src="/source/svgs/about.svg"></image>
+</view>

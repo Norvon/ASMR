@@ -1,0 +1,43 @@
+/* components/image-author-cell/image-author-cell.wxss */
+.cell {
+  margin-top: 20px;
+  display: flex;
+  justify-content:center;
+  background-color: #f4f4f4;
+  position: relative;
+}
+
+.cell-image {
+  border-radius: 20px;
+  box-shadow:0px 2px 5px 5px #f2f2f2;
+  will-change: transform;
+}
+
+.author {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  height: 32px;
+  width: 100%;
+  bottom: 10px;
+}
+
+.author-icon {
+  margin-left: 10.5vw;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.author-name {
+  font-size: 15px;
+  margin-left: 10px;
+  color: #fff;
+}
+
+.download-btn {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  right: 40px;
+}

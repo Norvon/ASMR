@@ -1,7 +1,9 @@
 <!--pages/home/home.wxml-->
 <view class='content'>
   <view class='top-content'>
-    <image class='top-image' src='/source/images/home-top.jpeg'></image>
+    <image class='top-image' 
+    src='/source/images/home-top.jpeg'
+    bindtap='clickTopImage'></image>
     <text>ASMR 专辑</text>
   </view>
   <scroll-view 

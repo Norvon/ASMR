@@ -1,0 +1,19 @@
+<!--components/image-author-cell/image-author-cell.wxml-->
+<view class="cell">
+    <image 
+    class="cell-image"
+    src="{{ src?src:'/source/images/no-picture.png' }}" 
+    mode="widthFix"
+    lazy-load="true">
+    </image>
+
+<view class="author">
+    <image 
+    class="author-icon"
+    mode="widthFix"
+  src="{{ authorIcon }}">
+    </image>
+    <text class="author-name">{{ authorName }}</text>
+</view>
+
+</view>
