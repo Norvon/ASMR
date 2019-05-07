@@ -87,17 +87,17 @@ Page({
     // 数据库
     wx.cloud.init();
     const db = wx.cloud.database({
-      env: 'daily-fish-release-id' // 云服务的 环境ID 需要替换为自己的
+      env: 'daily-fish-yun-2a3e79' // 云服务的 环境ID 需要替换为自己的
     });
 
     // 表
-    let imgageT = db.collection('images'); // 云服务表名 需要替换为自己的表名
+    let imgageT = db.collection('image'); // 云服务表名 需要替换为自己的表名
 
     // 查找
     imgageT
       .limit(count)
       .skip(this.data.dataArr.length)
-      .orderBy('image_id', 'desc')
+      // .orderBy('image_id', 'desc')
       .where({
         // "author_name": "新浪"
       })
